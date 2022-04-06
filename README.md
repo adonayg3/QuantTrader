@@ -1,0 +1,2 @@
+# QuantTrader
+Avalonia app 
