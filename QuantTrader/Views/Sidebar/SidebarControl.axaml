@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:QuantTrader.ViewModels.Sidebar"
+             xmlns:sidebar="clr-namespace:QuantTrader.Views.Sidebar"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="600"
+             x:Class="QuantTrader.Views.Sidebar.SidebarControl">
+    <Design.DataContext>
+        <viewModels:SidebarViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
+        <StackPanel>
+            <sidebar:SidebarLogoControl DataContext="{Binding SidebarLogoViewModel}"/>
+            <sidebar:SidebarNavControl DataContext="{Binding SidebarNavViewModel}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

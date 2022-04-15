@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="450"
+             x:Class="QuantTrader.Views.Sidebar.SidebarNavControl">
+    
+    <StackPanel>
+        <Button Width="200" Background="Transparent" Padding="15">Dashboard</Button>
+        <Button Width="200" Background="Transparent" Padding="15">Analytics</Button>
+        <Button Width="200" Background="Transparent" Padding="15">Momentum Scanner</Button>
+        <Button Width="200" Background="Transparent" Padding="15" >Value Scanner</Button>
+        <Button Width="200" Background="Transparent" Padding="15" >Index Funds</Button>
+    </StackPanel>
+</UserControl>

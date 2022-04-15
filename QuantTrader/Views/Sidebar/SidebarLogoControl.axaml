@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sidebar="clr-namespace:QuantTrader.ViewModels.Sidebar"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="600"
+             x:Class="QuantTrader.Views.Sidebar.SidebarLogoControl">
+    
+    <Design.DataContext>
+        <sidebar:SidebarLogoViewModel/>
+    </Design.DataContext>
+    
+    <StackPanel Margin="20">
+        <Image Width="190" Stretch="Uniform" Source="../../Assets/qlogo_white.png"></Image>
+        <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding AppName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock FontWeight="ExtraLight" FontSize="12"  Text="{Binding Version}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </StackPanel>
+</UserControl>
