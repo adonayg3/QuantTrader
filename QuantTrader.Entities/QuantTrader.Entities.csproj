@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="CoinData\CoinData.cs" />
+      <Compile Remove="CoinData\CoinDayMarketData.cs" />
+      <Compile Remove="CoinData\CoinDeveloperData.cs" />
+      <Compile Remove="CoinData\CoinMarketChartData.cs" />
+      <Compile Remove="CoinData\CoinMarketData.cs" />
+      <Compile Remove="CoinData\CoinTickerData.cs" />
+      <Compile Remove="Shared\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Shared\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Shared\**" />
+    </ItemGroup>
+
+</Project>
