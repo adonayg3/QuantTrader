@@ -1,6 +1,5 @@
 ﻿using QuantTrader.ViewModels.Interfaces;
 using QuantTrader.ViewModels.Interfaces.Sidebar;
-using QuantTrader.ViewModels.Sidebar;
 
 namespace QuantTrader.ViewModels
 {
@@ -13,12 +12,7 @@ namespace QuantTrader.ViewModels
             SidebarViewModel = sidebarViewModel;
         }
         
-        /// <summary>
-        /// Parameterless constructor required for data context binding 
-        /// </summary>
-        public MainWindowViewModel()
-        {
-
-        }
+        // Parameterless constructor required for data context binding 
+        public MainWindowViewModel() { }
     }
 }

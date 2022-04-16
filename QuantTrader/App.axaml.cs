@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.Themes.Fluent;
-using QuantTrader.ViewModels;
-using QuantTrader.ViewModels.Sidebar;
+using QuantTrader.DependencyInjection;
+using QuantTrader.ViewModels.Interfaces;
 using QuantTrader.Views;
+using Splat;
 
 namespace QuantTrader;
 
@@ -19,12 +19,15 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            DataContext = GetRequiredService<IMainWindowViewModel>();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(new SidebarViewModel(new SidebarLogoViewModel(), new SidebarNavViewModel())),
+                DataContext = DataContext
             };
         }
 
         base.OnFrameworkInitializationCompleted();
     }
+    
+    private static T GetRequiredService<T>() => Locator.Current.GetRequiredService<T>();
 }
