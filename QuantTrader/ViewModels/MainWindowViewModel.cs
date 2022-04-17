@@ -5,11 +5,12 @@ namespace QuantTrader.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
-        public string Greeting => "Welcome to Avalonia!";
         public ISidebarViewModel? SidebarViewModel { get; }
-        public MainWindowViewModel(ISidebarViewModel? sidebarViewModel)
+        public IMainViewModel? MainViewModel { get; }
+        public MainWindowViewModel(ISidebarViewModel? sidebarViewModel, IMainViewModel? mainViewModel)
         {
             SidebarViewModel = sidebarViewModel;
+            MainViewModel = mainViewModel;
         }
         
         // Parameterless constructor required for data context binding 

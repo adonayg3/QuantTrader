@@ -5,7 +5,7 @@
              xmlns:viewModels="clr-namespace:QuantTrader.ViewModels.Sidebar"
              xmlns:sidebar="clr-namespace:QuantTrader.Views.Sidebar"
              mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="600"
-             x:Class="QuantTrader.Views.Sidebar.SidebarControl">
+             x:Class="QuantTrader.Views.Sidebar.SidebarView">
     <Design.DataContext>
         <viewModels:SidebarViewModel/>
     </Design.DataContext>
@@ -13,8 +13,8 @@
     <DockPanel>
         <Button DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
         <StackPanel>
-            <sidebar:SidebarLogoControl DataContext="{Binding SidebarLogoViewModel}"/>
-            <sidebar:SidebarNavControl DataContext="{Binding SidebarNavViewModel}"/>
+            <sidebar:SidebarLogoView DataContext="{Binding SidebarLogoViewModel}"/>
+            <sidebar:SidebarNavView DataContext="{Binding SidebarNavViewModel}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>

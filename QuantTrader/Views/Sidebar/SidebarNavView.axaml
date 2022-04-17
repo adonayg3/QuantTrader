@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="450"
-             x:Class="QuantTrader.Views.Sidebar.SidebarNavControl">
+             x:Class="QuantTrader.Views.Sidebar.SidebarNavView">
     
     <StackPanel>
         <Button Width="200" Background="Transparent" Padding="15">Dashboard</Button>

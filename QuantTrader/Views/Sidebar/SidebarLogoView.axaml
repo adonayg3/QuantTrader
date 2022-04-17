@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sidebar="clr-namespace:QuantTrader.ViewModels.Sidebar"
              mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="600"
-             x:Class="QuantTrader.Views.Sidebar.SidebarLogoControl">
+             x:Class="QuantTrader.Views.Sidebar.SidebarLogoView">
     
     <Design.DataContext>
         <sidebar:SidebarLogoViewModel/>

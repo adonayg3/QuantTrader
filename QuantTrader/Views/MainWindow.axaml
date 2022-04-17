@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:QuantTrader.ViewModels"
         xmlns:sidebar="clr-namespace:QuantTrader.Views.Sidebar"
+        xmlns:views="clr-namespace:QuantTrader.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
         x:Class="QuantTrader.Views.MainWindow"
         Icon="/Assets/logo.ico"
@@ -19,10 +20,10 @@
                DisplayMode="Inline"
                OpenPaneLength="250">
         <SplitView.Pane>
-            <sidebar:SidebarControl DataContext="{Binding SidebarViewModel}"/>
+            <sidebar:SidebarView DataContext="{Binding SidebarViewModel}"/>
         </SplitView.Pane>
         <SplitView.Content>
-            <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <views:MainView DataContext="{Binding MainViewModel}"/>
         </SplitView.Content>
     </SplitView>
 

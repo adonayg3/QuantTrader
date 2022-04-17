@@ -21,9 +21,10 @@ public static class ViewModelsBootstrapper
             resolver.GetRequiredService<ISidebarLogoViewModel>(),
             resolver.GetRequiredService<ISidebarNavViewModel>()
             ));
-        
+        services.Register<IMainViewModel>(() => new MainViewModel());
         services.Register<IMainWindowViewModel>(() => new MainWindowViewModel(
-             resolver.GetRequiredService<ISidebarViewModel>()
+             resolver.GetRequiredService<ISidebarViewModel>(),
+             resolver.GetRequiredService<IMainViewModel>()
             ));
     }
 }

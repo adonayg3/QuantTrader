@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace QuantTrader.Views.Sidebar;
 
-public partial class SidebarNavControl : UserControl
+public partial class SidebarView : UserControl
 {
-    public SidebarNavControl()
+    public SidebarView()
     {
         InitializeComponent();
     }
