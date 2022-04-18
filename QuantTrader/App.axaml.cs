@@ -1,14 +1,16 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Dock.Model.Core;
 using QuantTrader.DependencyInjection;
+using QuantTrader.Factories;
 using QuantTrader.ViewModels.Interfaces;
 using QuantTrader.Views;
 using Splat;
 
 namespace QuantTrader;
 
-public partial class App : Application
+public class App : Application
 {
     public override void Initialize()
     {
@@ -17,13 +19,48 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        var factory = GetRequiredService<IMainDockFactory>();
+        var layout = factory.CreateLayout();
+        if (layout != null)
         {
-            DataContext = GetRequiredService<IMainWindowViewModel>();
-            desktop.MainWindow = new MainWindow
+            factory.InitLayout(layout);
+
+            var mainWindowViewModel = GetRequiredService<IMainWindowViewModel>();
+            mainWindowViewModel.Factory = factory;
+            mainWindowViewModel.Layout = layout;
+
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                DataContext = DataContext
-            };
+                DataContext = mainWindowViewModel;
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = DataContext
+                };
+
+                desktop.MainWindow.Closing += (_, _) =>
+                {
+                    if (layout is IDock dock)
+                    {
+                        if (dock.Close.CanExecute(null))
+                        {
+                            dock.Close.Execute(null);
+                        }
+                    }
+                };
+
+                desktop.MainWindow = desktop.MainWindow;
+
+                desktop.Exit += (_, _) =>
+                {
+                    if (layout is IDock dock)
+                    {
+                        if (dock.Close.CanExecute(null))
+                        {
+                            dock.Close.Execute(null);
+                        }
+                    }
+                };
+            }
         }
 
         base.OnFrameworkInitializationCompleted();

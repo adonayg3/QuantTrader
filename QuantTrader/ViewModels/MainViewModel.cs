@@ -1,8 +1,9 @@
+using Dock.Model.ReactiveUI.Controls;
 using QuantTrader.ViewModels.Interfaces;
 
 namespace QuantTrader.ViewModels;
 
-public class MainViewModel : ViewModelBase, IMainViewModel
+public class MainViewModel : RootDock, IMainViewModel
 {
-    public string Greeting => "Welcome to Avalonia!";
+
 }

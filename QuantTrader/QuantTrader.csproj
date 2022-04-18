@@ -10,6 +10,8 @@
     <ItemGroup>
         <Folder Include="Models" />
         <Folder Include="Models\" />
+        <Folder Include="ViewModels\Sidebar" />
+        <Folder Include="Views\Sidebar" />
         <AvaloniaResource Include="Assets\**" />
         <None Remove=".gitignore" />
     </ItemGroup>
@@ -22,10 +24,5 @@
         <PackageReference Include="Dock.Avalonia" Version="0.10.12" />
         <PackageReference Include="Dock.Model.ReactiveUI" Version="0.10.12" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
-    </ItemGroup>
-    <ItemGroup>
-      <UpToDateCheckInput Remove="Views\Documents\AnalysisView.axaml" />
-      <UpToDateCheckInput Remove="Views\Documents\DashboardView.axaml" />
-      <UpToDateCheckInput Remove="Views\Documents\TestDocumentView.axaml" />
     </ItemGroup>
 </Project>
