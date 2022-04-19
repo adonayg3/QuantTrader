@@ -13,18 +13,19 @@ public static class ViewModelsBootstrapper
 {
     public static void RegisterViewModels(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
     {
-        RegisterFactories(services, resolver);
+        RegisterFactories(services);
         RegisterCommonViewModels(services, resolver);
     }
 
-    private static void RegisterFactories(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
+    private static void RegisterFactories(IMutableDependencyResolver services)
     {
         services.Register<IMainDockFactory>(() => new MainDockFactory());
     }
 
     private static void RegisterCommonViewModels(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
     {
-        services.Register<ITestDocumentViewModel>(() => new TestDocumentViewModel());
+        services.Register<IDashboardViewModel>(() => new DashboardViewModel());
+        services.Register<IAnalyticsViewModel>(() => new AnalyticsViewModel());
         services.Register<ISidebarLogoViewModel>(() => new SidebarLogoViewModel());
         services.Register<ISidebarNavViewModel>(() => new SidebarNavViewModel());
         services.Register<ISidebarViewModel>(() => new SidebarViewModel(

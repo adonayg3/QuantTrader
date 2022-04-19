@@ -1,11 +1,11 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace QuantTrader.Views.Sidebar;
+namespace QuantTrader.Views.Documents;
 
-public partial class SidebarView : UserControl
+public partial class AnalyticsView : UserControl
 {
-    public SidebarView()
+    public AnalyticsView()
     {
         InitializeComponent();
     }

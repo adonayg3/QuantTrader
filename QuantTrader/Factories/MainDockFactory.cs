@@ -10,6 +10,7 @@ using Dock.Model.ReactiveUI;
 using Dock.Model.ReactiveUI.Controls;
 using QuantTrader.ViewModels;
 using QuantTrader.ViewModels.Documents;
+using QuantTrader.ViewModels.Interfaces.Document;
 using QuantTrader.ViewModels.Tools;
 using ReactiveUI;
 
@@ -21,16 +22,16 @@ public class MainDockFactory : Factory, IMainDockFactory
 
     public override IRootDock CreateLayout()
     {
-        var document1 = new TestDocumentViewModel
+        var document1 = new DashboardViewModel
         {
-            Id = "Document1",
-            Title = "Document1"
+            Id = "Dashboard",
+            Title = "Dashboard"
         };
 
-        var document2 = new TestDocumentViewModel
+        var document2 = new AnalyticsViewModel
         {
-            Id = "Document2",
-            Title = "Document2"
+            Id = "Analytics",
+            Title = "Analytics"
         };
 
         var rightTopTool1 = new RightTopTool1ViewModel
@@ -73,8 +74,8 @@ public class MainDockFactory : Factory, IMainDockFactory
 
         documentDock.CreateDocument = ReactiveCommand.Create(() =>
         {
-            var index = documentDock.VisibleDockables.Count + 1;
-            var document = new TestDocumentViewModel {Id = $"Document{index}", Title = $"Document{index}"};
+            var index = documentDock.VisibleDockables.Count;
+            var document = new AnalyticsViewModel {Id = $"Analytics{index}", Title = $"Analytics{index}"};
             AddDockable(documentDock, document);
             SetActiveDockable(document);
             SetFocusedDockable(documentDock, document);
