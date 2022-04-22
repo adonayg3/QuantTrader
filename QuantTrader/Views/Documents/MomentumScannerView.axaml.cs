@@ -1,11 +1,12 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
 namespace QuantTrader.Views.Documents;
 
-public partial class IndexFundsView : UserControl
+public partial class MomentumScannerView : UserControl
 {
-    public IndexFundsView()
+    public MomentumScannerView()
     {
         InitializeComponent();
     }

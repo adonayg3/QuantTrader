@@ -54,18 +54,35 @@ public class SidebarNavViewModel : ViewModelBase, ISidebarNavViewModel
     }
     private void NavigateToMomentumScanner()
     {
-        
+        _mainDockFactory?.GetOrAddDocument(new MomentumScannerViewModel
+        {
+            Id = "Momentum",
+            Title = "Momentum Scanner"
+        });
     }
     private void NavigateToValueScanner()
     {
-        
+        _mainDockFactory?.GetOrAddDocument(new ValueScannerViewModel
+        {
+            Id = "ValueScanner",
+            Title = "Value Scanner"
+        });
     }
     private void NavigateToIndexFunds()
     {
-
+        _mainDockFactory?.GetOrAddDocument(new IndexFundsViewModel
+        {
+            Id = "IndexFunds",
+            Title = "Index Funds"
+        });
     }
     private void NavigateToSettings()
-    {
+    {        
+        _mainDockFactory?.GetOrAddDocument(new SettingsViewModel
+        {
+            Id = "Settings",
+            Title = "Settings"
+        });
 
     }
     #endregion

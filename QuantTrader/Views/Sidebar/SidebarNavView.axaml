@@ -12,7 +12,7 @@
     </Design.DataContext>
     
     <DockPanel>
-        <Button DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
+        <Button Command="{Binding SettingsCommand}" DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
         <StackPanel>
             <views:SidebarLogoView DataContext="{Binding SidebarLogoViewModel}"/>
             <StackPanel>
