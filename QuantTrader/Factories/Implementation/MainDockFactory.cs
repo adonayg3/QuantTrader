@@ -8,13 +8,13 @@ using Dock.Model.Controls;
 using Dock.Model.Core;
 using Dock.Model.ReactiveUI;
 using Dock.Model.ReactiveUI.Controls;
+using QuantTrader.Factories.Interfaces;
 using QuantTrader.ViewModels;
 using QuantTrader.ViewModels.Documents;
-using QuantTrader.ViewModels.Interfaces.Document;
 using QuantTrader.ViewModels.Tools;
 using ReactiveUI;
 
-namespace QuantTrader.Factories;
+namespace QuantTrader.Factories.Implementation;
 
 public class MainDockFactory : Factory, IMainDockFactory
 {
@@ -187,5 +187,24 @@ public class MainDockFactory : Factory, IMainDockFactory
             SetActiveDockable(_documentDock);
             SetFocusedDockable(_documentDock, _documentDock.VisibleDockables?.FirstOrDefault());
         }
+    }
+
+    public void GetOrAddDocument(Document document)
+    {
+        if (_documentDock?.VisibleDockables != null && _documentDock.VisibleDockables.Any(d => d.Id == document.Id))
+        {
+            var foundDocument = _documentDock.VisibleDockables.First(d => d.Id == document.Id);
+            SetActiveDockable(foundDocument);
+            SetFocusedDockable(_documentDock, foundDocument);
+        }
+        else
+            CreateDocument(document);
+    }
+    public void CreateDocument(Document document)
+    {
+        if (_documentDock?.VisibleDockables == null) return;
+        AddDockable(_documentDock, document);
+        SetActiveDockable(document);
+        SetFocusedDockable(_documentDock, document);
     }
 }

@@ -1,4 +1,5 @@
-using QuantTrader.Factories;
+using QuantTrader.Factories.Implementation;
+using QuantTrader.Factories.Interfaces;
 using QuantTrader.ViewModels;
 using QuantTrader.ViewModels.Documents;
 using QuantTrader.ViewModels.Interfaces;
@@ -19,7 +20,7 @@ public static class ViewModelsBootstrapper
 
     private static void RegisterFactories(IMutableDependencyResolver services)
     {
-        services.Register<IMainDockFactory>(() => new MainDockFactory());
+        services.RegisterLazySingleton<IMainDockFactory>(() => new MainDockFactory());
     }
 
     private static void RegisterCommonViewModels(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
@@ -27,9 +28,11 @@ public static class ViewModelsBootstrapper
         services.Register<IDashboardViewModel>(() => new DashboardViewModel());
         services.Register<IAnalyticsViewModel>(() => new AnalyticsViewModel());
         services.Register<ISidebarLogoViewModel>(() => new SidebarLogoViewModel());
-        services.Register<ISidebarNavViewModel>(() => new SidebarNavViewModel());
+        services.Register<ISidebarNavViewModel>(() => new SidebarNavViewModel(
+            resolver.GetRequiredService<IMainDockFactory>(),
+            resolver.GetRequiredService<ISidebarLogoViewModel>()
+            ));
         services.Register<ISidebarViewModel>(() => new SidebarViewModel(
-            resolver.GetRequiredService<ISidebarLogoViewModel>(),
             resolver.GetRequiredService<ISidebarNavViewModel>()
             ));
         services.Register<IMainViewModel>(() => new MainViewModel());

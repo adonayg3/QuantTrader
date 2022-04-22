@@ -10,11 +10,5 @@
         <viewModels:SidebarViewModel/>
     </Design.DataContext>
     
-    <DockPanel>
-        <Button DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
-        <StackPanel>
-            <sidebar:SidebarLogoView DataContext="{Binding SidebarLogoViewModel}"/>
-            <sidebar:SidebarNavView DataContext="{Binding SidebarNavViewModel}"/>
-        </StackPanel>
-    </DockPanel>
+    <sidebar:SidebarNavView DataContext="{Binding SidebarNavViewModel}"/>
 </UserControl>

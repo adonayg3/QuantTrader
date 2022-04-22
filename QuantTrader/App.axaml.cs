@@ -3,7 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Dock.Model.Core;
 using QuantTrader.DependencyInjection;
-using QuantTrader.Factories;
+using QuantTrader.Factories.Interfaces;
 using QuantTrader.ViewModels.Interfaces;
 using QuantTrader.Views;
 using Splat;

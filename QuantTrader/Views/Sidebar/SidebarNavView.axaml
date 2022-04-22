@@ -2,14 +2,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:QuantTrader.ViewModels.Sidebar"
+             xmlns:views="clr-namespace:QuantTrader.Views.Sidebar"
              mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="450"
              x:Class="QuantTrader.Views.Sidebar.SidebarNavView">
     
-    <StackPanel>
-        <Button Width="200" Background="Transparent" Padding="15">Dashboard</Button>
-        <Button Width="200" Background="Transparent" Padding="15">Analytics</Button>
-        <Button Width="200" Background="Transparent" Padding="15">Momentum Scanner</Button>
-        <Button Width="200" Background="Transparent" Padding="15" >Value Scanner</Button>
-        <Button Width="200" Background="Transparent" Padding="15" >Index Funds</Button>
-    </StackPanel>
+    <Design.DataContext>
+        <viewModels:SidebarNavViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Width="200" Background="Transparent" Padding="15" >Settings</Button>
+        <StackPanel>
+            <views:SidebarLogoView DataContext="{Binding SidebarLogoViewModel}"/>
+            <StackPanel>
+                <Button Command="{Binding DashboardCommand}" Width="200" Background="Transparent" Padding="15">Dashboard</Button>
+                <Button Command="{Binding AnalyticsCommand}" Width="200" Background="Transparent" Padding="15">Analytics</Button>
+                <Button Command="{Binding MomentumScannerCommand }" Width="200" Background="Transparent" Padding="15">Momentum Scanner</Button>
+                <Button Command="{Binding ValueScannerCommand}" Width="200" Background="Transparent" Padding="15" >Value Scanner</Button>
+                <Button Command="{Binding IndexFundsCommand}" Width="200" Background="Transparent" Padding="15" >Index Funds</Button>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
 </UserControl>
