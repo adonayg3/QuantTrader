@@ -40,29 +40,11 @@ public class MainDockFactory : Factory, IMainDockFactory
             Title = "RightTop1"
         };
 
-        var rightTopTool2 = new RightTopTool2ViewModel
-        {
-            Id = "RightTop2",
-            Title = "RightTop2"
-        };
-
-        var rightBottomTool1 = new RightBottomTool1ViewModel
-        {
-            Id = "RightBottom1",
-            Title = "RightBottom1"
-        };
-
-        var rightBottomTool2 = new RightBottomTool2ViewModel
-        {
-            Id = "RightBottom2",
-            Title = "RightBottom2"
-        };
-
         var documentDock = new DocumentDock
         {
             Id = "DocumentsPane",
             Title = "DocumentsPane",
-            Proportion = double.NaN,
+            Proportion = 1,
             ActiveDockable = document1,
             VisibleDockables = CreateList<IDockable>
             (
@@ -85,7 +67,7 @@ public class MainDockFactory : Factory, IMainDockFactory
         {
             Id = "MainLayout",
             Title = "MainLayout",
-            Proportion = double.NaN,
+            Proportion = 0.5,
             Orientation = Orientation.Horizontal,
             ActiveDockable = null,
             VisibleDockables = CreateList<IDockable>
@@ -100,7 +82,7 @@ public class MainDockFactory : Factory, IMainDockFactory
                 {
                     Id = "RightPane",
                     Title = "RightPane",
-                    Proportion = double.NaN,
+                    Proportion = 0.5,
                     Orientation = Orientation.Vertical,
                     ActiveDockable = null,
                     VisibleDockables = CreateList<IDockable>
@@ -109,31 +91,11 @@ public class MainDockFactory : Factory, IMainDockFactory
                         {
                             Id = "RightPaneTop",
                             Title = "RightPaneTop",
-                            Proportion = double.NaN,
+                            Proportion = 0.5,
                             ActiveDockable = rightTopTool1,
                             VisibleDockables = CreateList<IDockable>
                             (
-                                rightTopTool1,
-                                rightTopTool2
-                            ),
-                            Alignment = Alignment.Right,
-                            GripMode = GripMode.Visible
-                        },
-                        new ProportionalDockSplitter()
-                        {
-                            Id = "RightPaneTopSplitter",
-                            Title = "RightPaneTopSplitter"
-                        },
-                        new ToolDock
-                        {
-                            Id = "RightPaneBottom",
-                            Title = "RightPaneBottom",
-                            Proportion = double.NaN,
-                            ActiveDockable = rightBottomTool1,
-                            VisibleDockables = CreateList<IDockable>
-                            (
-                                rightBottomTool1,
-                                rightBottomTool2
+                                rightTopTool1
                             ),
                             Alignment = Alignment.Right,
                             GripMode = GripMode.Visible
